@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>This is Just a template</h1>
+    <h5>Item List</h5>
+    {% for item in item_list %}
+        <table>
+            <tr>
+            <th>{{ item.id }}</th>
+            <!-- <th><a href="/food/{{ item.id }}">{{ item.item_name }}</a></th> -->
+            <th><a href="{% url 'food:details' item.id %}">{{ item.item_name }}</a></th>
+            <th>{{ item.item_description }}</th>
+            <th>{{ item.item_price }}</th>
+            </tr>
+        </table>
+    {% endfor %}
+</body>
+</html>

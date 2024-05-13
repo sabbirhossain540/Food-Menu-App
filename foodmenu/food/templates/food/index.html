@@ -1,23 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+{% extends 'food/base.html' %}
+
+{% block body %}
     <h1>This is Just a template</h1>
     <h5>Item List</h5>
     {% for item in item_list %}
-        <table>
-            <tr>
-            <th>{{ item.id }}</th>
-            <!-- <th><a href="/food/{{ item.id }}">{{ item.item_name }}</a></th> -->
-            <th><a href="{% url 'food:details' item.id %}">{{ item.item_name }}</a></th>
-            <th>{{ item.item_description }}</th>
-            <th>{{ item.item_price }}</th>
-            </tr>
-        </table>
+        <div class="row">
+            <div class="col-md-3 offset-md-2">
+                <img class="card" height="150px" width="300px" src="{{ item.item_image }}" alt="">
+            </div>
+            <div class="col-md-4">
+                <h3><a href="{% url 'food:details' item.id %}">{{ item.item_name }}</a></h3>
+                <p>{{ item.item_description }}</p>
+                <p>Price: {{ item.item_price }}</p>
+            </div>
+            <div class="col-md-2">
+                <a class="btn btn-outline-warning" href="{% url 'food:details' item.id %}">View Details</a>
+            </div>
+        </div>
+  
     {% endfor %}
-</body>
-</html>
+
+{% endblock %}
+   
+
+ 

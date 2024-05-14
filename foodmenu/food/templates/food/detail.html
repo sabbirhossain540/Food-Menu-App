@@ -10,6 +10,7 @@
             <h1>{{ item.item_name }}</h1>
             <p>{{ item.item_description }}</p>
             <h4>Price: {{ item.item_price }}</h4>
+            <a class="btn btn-outline-danger" href="{% url 'food:delete_item' item.id %}">Delete</a>
         </div>
     </div>
 </div>
